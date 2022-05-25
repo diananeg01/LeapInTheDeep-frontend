@@ -1,0 +1,24 @@
+<div class="col-sm-9">
+  <router-outlet></router-outlet>
+
+  <ul class="nav nav-tabs"><!-- id="myTab"-->
+    <li class="nav-link active"><a (click)='selectTab(1)' [class.active]="isTabSelected(1)"
+                                   data-toggle="tab">All books</a></li>
+    <li class="nav-link"><a (click)='selectTab(2)' [class.active]="isTabSelected(2)"
+                            data-toggle="tab">WishList</a></li>
+    <li class="nav-link"><a (click)='selectTab(3)' [class.active]="isTabSelected(3)"
+                            data-toggle="tab">Favourites</a></li>
+    <li class="nav-link" *ngIf="user.userType===userType.WRITER"><a (click)='selectTab(4)' [class.active]="isTabSelected(4)"
+                            data-toggle="tab">Drafts</a></li>
+    <li class="nav-link" *ngIf="user.userType===userType.WRITER"><a (click)='selectTab(5)' [class.active]="isTabSelected(5)"
+                            data-toggle="tab">Published</a></li>
+  </ul>
+</div>
+
+<div class="card-content">
+  <books *ngIf="isTabSelected(1)" [user]="user"></books>
+  <wishlist *ngIf="isTabSelected(2)" [user]="user"></wishlist>
+  <favourite *ngIf="isTabSelected(3)" [user]="user"></favourite>
+  <draft *ngIf="isTabSelected(4)" [user]="user"></draft>
+  <published *ngIf="isTabSelected(5)" [user]="user"></published>
+</div>
