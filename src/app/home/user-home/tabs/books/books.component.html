@@ -1,0 +1,43 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container padding-bottom-3x mb-2">
+  <div class="col-lg-8">
+    <div class="padding-top-2x mt-2 hidden-lg-up"></div>
+    <!-- Wishlist Table-->
+    <div class="tab-content">
+      <div class="tab-pane active" id="home">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Book ID</th>
+              <th>Nume</th>
+              <th>Autor</th>
+              <th>Actiune</th>
+            </tr>
+            </thead>
+            <tbody id="items">
+            <tr *ngFor="let book of books">
+              <td><a>{{book.bookId}}</a></td>
+              <td>{{book.name}}</td>
+              <td>{{book.author}}</td>
+              <td>
+                <div class="btn-group align-top">
+                  <button class="btn btn-sm btn-outline-secondary badge" type="button"
+                          (click)="onRead(book)"><a [routerLink]="['/read', book.name]" target="_blank">Read</a></button>
+                  <button class="btn btn-sm btn-outline-secondary badge" type="button"
+                          (click)="onWishlist(book)">Wishlist</button>
+                  <button class="btn btn-sm btn-outline-secondary badge" type="button"
+                          (click)="onFavourites(book)">Favourites</button>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+      </div>
+    </div>
+  </div>
+</div>
