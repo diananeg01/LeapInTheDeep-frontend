@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="col-md-7">
+    <div class="well">
+      <form accept-charset="UTF-8" action="" (ngSubmit)="onSubmit()" #newForm="ngForm">
+        <input type="text" placeholder="Title..." maxlength="100" class="form-control" id="name"
+               name="name" [(ngModel)]="newBook.name">
+        <textarea class="form-control" id="text" name="content" [(ngModel)]="newBook.content"
+                  placeholder="Type in ..." rows="5"></textarea>
+        <button class="btn btn-info" type="button">Save</button>
+        <button class="btn btn-info" type="submit">Post</button>
+      </form>
+    </div>
+  </div>
+</div>
